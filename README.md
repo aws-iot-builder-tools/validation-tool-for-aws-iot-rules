@@ -1,7 +1,7 @@
-# Tool for Validating AWS Iot Rules
+# Tool for Validating AWS IoT Rules
 
 ## Description
-This project creates a testing framework which:
+This project creates a validation framework for IoT Rules SQL Statements. It:
 * Does the heavy lifting of creating and configuring the IoT Rules and necessary infrastructure.
 * Solves the problem of enabling friction free validation of Rules syntax, payload transformations, etc.
 * Provides an easily extensible library of sample SQL statements, with input payloads and expected output.
