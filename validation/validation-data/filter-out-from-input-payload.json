@@ -1,0 +1,36 @@
+{  "sqlVersion": "2016-03-23",
+  "topic": "test/test3",
+  "inputPayload": {
+    "Pos": [
+      {
+        "L1": 36.903999599999999,
+        "L2": -25.263283700000002,
+        "S": 5
+      },
+      {
+        "L1": 36.903999599999977,
+        "L2": -25.2632837000000772,
+        "S": 6
+      },
+      {
+        "L2": -25.263283700000002,
+        "S": 7
+      }
+    ]
+  },
+  "inputSql": "SELECT (SELECT * FROM Pos WHERE L1 <> isNull(SELECT VALUE L1 FROM Pos) ) as required_array FROM 'test/test3'",
+  "expectedOutput": {
+    "required_array": [
+      {
+        "L1": 36.9039996,
+        "L2": -25.263283700000002,
+        "S": 5
+      },
+      {
+        "L1": 36.90399959999998,
+        "L2": -25.263283700000077,
+        "S": 6
+      }
+    ]
+  }
+}

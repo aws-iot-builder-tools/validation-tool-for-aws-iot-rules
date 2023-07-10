@@ -1,0 +1,7 @@
+{
+  "sqlVersion": "2016-03-23",
+  "topic": "test/test4",
+  "inputPayload": "{\"temperature\":23.07,\"humidity\":49.9397,\"light\":5.0}",
+  "inputSql": "SELECT temperature, humidity, cast(light as double) as newLight FROM 'test/test4'",
+  "expectedOutput": "{\"temperature\":23.07,\"humidity\":49.9397,\"newLight\":5}"
+}

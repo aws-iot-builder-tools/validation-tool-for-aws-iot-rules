@@ -1,0 +1,26 @@
+{
+  "sqlVersion": "2016-03-23",
+  "topic": "test/test6",
+  "inputPayload": {
+    "state": {
+      "command": "DOOR_OPEN",
+      "debug": "FALSE"
+    },
+    "version": "3.1"
+  },
+  "inputSql": "SELECT state.debug AS state.debug, state.command AS state.command, version FROM 'test/test6' WHERE IsUndefined(state.debug) = False OR IsUndefined(state.command) = False",
+  "expectedOutput": {
+    "state": {
+      "debug": "FALSE",
+      "command": "DOOR_OPEN"
+    },
+    "version": "3.1"
+  }
+}
+
+
+
+
+
+
+

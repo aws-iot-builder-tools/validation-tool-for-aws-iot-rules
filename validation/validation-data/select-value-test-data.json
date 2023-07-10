@@ -1,0 +1,13 @@
+{
+  "topic": "test/test2",
+  "inputPayload": {"messages":[{"message": "a"}, {"message": "b"}]},
+  "inputSql": "SELECT VALUE *.messages FROM 'test/test2'",
+  "expectedOutput": [
+    {
+      "message": "a"
+    },
+    {
+      "message": "b"
+    }
+  ]
+}

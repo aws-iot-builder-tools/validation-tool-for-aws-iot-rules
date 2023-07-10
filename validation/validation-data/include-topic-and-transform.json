@@ -1,0 +1,6 @@
+{
+  "topic": "test/test1",
+  "inputPayload": {"foo":"bar"},
+  "inputSql": "SELECT get((SELECT *, topic() as topic FROM *),0) as data FROM 'test/test1'",
+  "expectedOutput":{"data": {"foo":"bar","topic":"test/test1"}}
+}

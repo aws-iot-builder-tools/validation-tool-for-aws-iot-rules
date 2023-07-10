@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "type": "object",
+  "properties": {
+    "sqlVersion": {
+      "type": "string",
+      "description": "SQL version needed for the test. Defaults to latest."
+    },
+    "topic": {
+      "type": "string"
+    },
+    "inputPayload": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "inputSql": {
+      "type": "string"
+    },
+    "expectedOutput": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    }
+  },
+  "required": [
+    "topic",
+    "inputPayload",
+    "inputSql",
+    "expectedOutput"
+  ]
+}
