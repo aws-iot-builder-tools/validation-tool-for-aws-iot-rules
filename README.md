@@ -30,7 +30,7 @@ To change the default scenario, got to [config.js](util/config.js), and re-set t
 
 You can choose the validation scenario you want to execute, by running:
 
-```npm test -- -inputFile=<existing or new file name>```
+```npm test -- -inputFile=<existing or newly created file name>```
 
 You can also choose to execute all the provides scenarios, by running:
 

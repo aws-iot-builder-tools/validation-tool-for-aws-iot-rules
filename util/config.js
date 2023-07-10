@@ -1,5 +1,5 @@
 export const config = {
     region: "eu-west-1",
-    accountId: "123227395025",
+    accountId: "<<YOUR_ACCOUNT_ID>>",
     defaultInputFile: "casting-sensor-payload-old-sql.json"
 }
