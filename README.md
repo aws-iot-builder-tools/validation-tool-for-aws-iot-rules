@@ -58,7 +58,7 @@ If you add more validation scenarios, please bear in mind that you might need to
 If you want to execute all validation scenarios together in the same test suite after you add more scenarios, you should adjust the timeout value in the test itself, or in the [jest.config.js](jest.config.js).
 
 ## IMPROVEMENTS
-There are improvements needed to this tool:
+Below is a list of improvements to this tool which should be considered for future iterations:
 1. In the current version, this tool is designed to run locally. Ideally it would be integrated in a CI/CD pipeline.
 3. Add support for MQTT 5 and Protobuf.
 4. In the current version, the tool assumes that the rule will execute (i.e. that the payload satisfies the WHERE clause). To validate scenarios where input payloads do not satisfy the WHERE clause, a new test case needs to be created, with modified expectations.
