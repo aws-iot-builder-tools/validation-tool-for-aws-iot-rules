@@ -7,7 +7,8 @@
       "description": "SQL version needed for the test. Defaults to latest."
     },
     "topic": {
-      "type": "string"
+      "type": "string",
+      "description":"This is the AWS IoT MQTT topic that the input payload will be published on. The same topic must be used in the Rule SQL FROM clause. "
     },
     "inputPayload": {
       "anyOf": [
@@ -17,10 +18,12 @@
         {
           "type": "object"
         }
-      ]
+      ],
+      "description":"This is the test input payload which will be published during the test execution. "
     },
     "inputSql": {
-      "type": "string"
+      "type": "string",
+      "description":"This is the SQL statement of the IoT Rule under evaluation. "
     },
     "expectedOutput": {
       "anyOf": [
@@ -34,7 +37,9 @@
           "type": "array"
         }
       ]
-    }
+    },
+    "description":"This is the expected output that the input payload will be transformed into after scenario validation execution. "
+
   },
   "required": [
     "topic",
