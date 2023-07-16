@@ -1,5 +1,8 @@
 # Tool for Validating AWS IoT Rules
 
+If you want to understand the tool in more detail, have a look at the [blog](https://dev.to/iotbuilders/a-tool-to-validate-aws-iot-rules-sql-statements-jg). 
+
+There is also a short video recording on how to use the tool [here](https://www.youtube.com/watch?v=VfswJyz07ds).
 ## Description
 This project creates a validation framework for IoT Rules SQL Statements. It:
 * Does the heavy lifting of creating and configuring the IoT Rules and necessary infrastructure.
@@ -15,6 +18,10 @@ The test suite will run through each of the test cases there.
 
 If there is a test failure, you will see the comparison between expected and actual output (as below).
 ![Example failure](docs/example-failure.png)
+
+## High Level Architecture
+![Architecture](docs/arch-diagram.png)
+
 ## Pre-requisites
 - You need to have an AWS Account and your set-up must export the needed AWS access key and session token.
 - You need to have node installed. This project was tested with Node v18.16.0.

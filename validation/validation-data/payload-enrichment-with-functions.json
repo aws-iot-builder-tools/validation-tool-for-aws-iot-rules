@@ -1,0 +1,7 @@
+{
+  "sqlVersion": "2016-03-23",
+  "topic": "123/ACT_123/slider/req",
+  "inputPayload": { "values": [50, 100]},
+  "inputSql": "SELECT *, topic(1) as deviceId, topic(2) as actuatorId, topic(3) as cmd FROM '+/+/+/req'",
+  "expectedOutput":{ "values": [50, 100], "deviceId": "123","actuatorId": "ACT_123", "cmd": "slider"  }
+}
