@@ -20,6 +20,8 @@ If there is a test failure, you will see the comparison between expected and act
 ![Example failure](docs/example-failure.png)
 
 ## High Level Architecture
+The components in gray are managed by the tool. 
+The inputs must be provided according to the JSON schema.
 ![Architecture](docs/arch-diagram.png)
 
 ## Pre-requisites
