@@ -110,8 +110,9 @@ describe('Verify IoT Rule Test Suite', () => {
         const ruleName = 'TestRule_' + generateRandomString();
         const res = await retry(async (bail) => {
             const sqlVersionString = sqlVersion ? sqlVersion : '2016-03-23';
+            let result = null;
             try {
-                const result = await createTopicRule(inputSql, sqlVersionString, ruleName, REPUBLISH_TOPIC, rolePolicyInfo.roleArn);
+                result = await createTopicRule(inputSql, sqlVersionString, ruleName, REPUBLISH_TOPIC, rolePolicyInfo.roleArn);
             } catch (e) {
                 if(e instanceof InvalidRequestException) {
                     throw new Error('[Validate-IoT-Rules] Error creating rule. Might need to wait for the role to be persisted.')
@@ -132,7 +133,7 @@ describe('Verify IoT Rule Test Suite', () => {
                 console.log('[Validate-IoT-Rules] trying again to create the Rule... ');
             }
         });
-        expect(res).toBe(true);
+        expect(res?.$metadata?.httpStatusCode).toBe(200);
         rulesToCleanUp.push(ruleName);
 
         console.log('[Validate-IoT-Rules] ', new Date().toISOString(), ' Created IoT Rule', ruleName, res);
