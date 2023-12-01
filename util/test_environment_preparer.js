@@ -116,13 +116,7 @@ export const createTopicRule = async (sqlUnderTest, sqlVersion, ruleName, topic,
         }
     };
     const command = new CreateTopicRuleCommand(input);
-    try {
-        const response =  await client.send(command);
-        return (response.$metadata.httpStatusCode === 200);
-    } catch (e) {
-        return false;
-    }
-    //TODO: parse errors.
+    return  await client.send(command);
 }
 
 const deleteTopicRule = async (ruleName) => {
