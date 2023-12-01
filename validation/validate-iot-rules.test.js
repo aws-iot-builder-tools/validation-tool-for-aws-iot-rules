@@ -6,6 +6,7 @@ import * as path from 'path';
 import {TestMQTTClient} from "../util/mqtt/test-mqtt-client.js";
 import {Device} from "../util/new-device.js";
 import {config} from "../util/config.js";
+import {InvalidRequestException, SqlParseException} from "@aws-sdk/client-iot";
 import retry from "async-retry";
 
 const generateRandomString = (length = 6) => Math.random().toString(20).substr(2, length);
@@ -109,16 +110,26 @@ describe('Verify IoT Rule Test Suite', () => {
         const ruleName = 'TestRule_' + generateRandomString();
         const res = await retry(async (bail) => {
             const sqlVersionString = sqlVersion ? sqlVersion : '2016-03-23';
-            const result = await createTopicRule(inputSql, sqlVersionString, ruleName, REPUBLISH_TOPIC, rolePolicyInfo.roleArn);
-            if (!result) {
-                throw new Error('[Validate-IoT-Rules] Error creating rule. Might need to wait for the role to be persisted.')
+            try {
+                const result = await createTopicRule(inputSql, sqlVersionString, ruleName, REPUBLISH_TOPIC, rolePolicyInfo.roleArn);
+            } catch (e) {
+                if(e instanceof InvalidRequestException) {
+                    throw new Error('[Validate-IoT-Rules] Error creating rule. Might need to wait for the role to be persisted.')
+                }
+
+                if(e instanceof SqlParseException) {
+                    bail(new Error(`[Validate-IoT-Rules] Error creating rule. Invalid SQL. ${e.message}`));
+                    return
+                }
+
+                throw new Error(`[Validate-IoT-Rules]  Error creating rule. ${e.name}`)
             }
-            //TODO: consider to bail for certain errors. Must look in the SDk docs.
+            
             return result;
         }, {
             retries: 5, //use 10 retries as lib default.
             onRetry: () => {
-                console.log('[Validate-IoT-Rules] Here we are: trying again to create the Rule... ');
+                console.log('[Validate-IoT-Rules] trying again to create the Rule... ');
             }
         });
         expect(res).toBe(true);
