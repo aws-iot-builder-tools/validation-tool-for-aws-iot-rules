@@ -5,7 +5,8 @@
     "test": "jest"
   },
   "overrides": {
-    "semver": "^7.5.3"
+    "semver": "^7.5.3",
+    "cross-spawn": "^7.0.5"
   },
   "dependencies": {
     "@aws-sdk/client-iot": "^3.637.0",
