@@ -9,8 +9,8 @@
     "cross-spawn": "^7.0.5"
   },
   "dependencies": {
-    "@aws-sdk/client-iot": "^3.637.0",
-    "@aws-sdk/client-iam": "^3.637.0",
+    "@aws-sdk/client-iot": "^3.1053.0",
+    "@aws-sdk/client-iam": "^3.1053.0",
     "jest": "^29.5.0",
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "aws-crt": "^1.21.1",
